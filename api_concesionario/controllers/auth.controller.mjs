@@ -3,9 +3,6 @@ import {
   crearUsuario
 } from "../repositories/usuarios.repository.mjs"
 
-// =======================
-// LOGIN (solo email)
-// =======================
 export async function login(req, res) {
   try {
     let { email } = req.body
@@ -34,9 +31,6 @@ export async function login(req, res) {
   }
 }
 
-// =======================
-// REGISTER (nombre + email)
-// =======================
 export async function register(req, res) {
   try {
     let { nombre, email } = req.body

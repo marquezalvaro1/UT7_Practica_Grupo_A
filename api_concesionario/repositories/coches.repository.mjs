@@ -1,8 +1,5 @@
 import { supabase } from "../config/supabaseClient.mjs"
 
-// ===============================
-// Obtener todos los coches
-// ===============================
 export async function obtenerCoches() {
   const { data, error } = await supabase
     .from("coches")
@@ -13,9 +10,6 @@ export async function obtenerCoches() {
   return data
 }
 
-// ===============================
-// Crear coche
-// ===============================
 export async function crearCoche(coche) {
   const { data, error } = await supabase
     .from("coches")
@@ -27,9 +21,6 @@ export async function crearCoche(coche) {
   return data
 }
 
-// ===============================
-// Actualizar estado
-// ===============================
 export async function actualizarEstadoCoche(id, estado) {
   const { error } = await supabase
     .from("coches")
@@ -39,9 +30,6 @@ export async function actualizarEstadoCoche(id, estado) {
   if (error) throw error
 }
 
-// ===============================
-// Actualizar visibilidad
-// ===============================
 export async function actualizarVisibilidadCoche(id, visible) {
   const { error } = await supabase
     .from("coches")
@@ -51,9 +39,6 @@ export async function actualizarVisibilidadCoche(id, visible) {
   if (error) throw error
 }
 
-// ===============================
-// Eliminar coche
-// ===============================
 export async function eliminarCochePorId(id) {
   const { error } = await supabase
     .from("coches")
@@ -63,10 +48,6 @@ export async function eliminarCochePorId(id) {
   if (error) throw error
 }
 
-/* ================================
-   🔥 FUNCIONES EXTRA (RESERVAS)
-   No rompen compatibilidad
-================================ */
 
 // Alias claro para reservas
 export async function cambiarEstadoCoche(id, estado) {

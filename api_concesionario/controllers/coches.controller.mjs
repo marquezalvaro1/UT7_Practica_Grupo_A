@@ -9,9 +9,6 @@ import {
 
 import { obtenerImagenCoche } from "../utils/unsplash.js"
 
-// =========================
-// GET COCHES
-// =========================
 export async function getCoches(req, res) {
   try {
     const coches = await obtenerCoches()
@@ -21,9 +18,6 @@ export async function getCoches(req, res) {
   }
 }
 
-// =========================
-// POST NUEVO COCHE (ADMIN)
-// =========================
 export async function postCoche(req, res) {
   try {
     let {
@@ -42,7 +36,6 @@ export async function postCoche(req, res) {
       })
     }
 
-    // 🔥 Si no viene imagen, se obtiene automáticamente
     if (!imagen) {
       imagen = await obtenerImagenCoche(marca, modelo)
     }
@@ -64,9 +57,6 @@ export async function postCoche(req, res) {
   }
 }
 
-// =========================
-// PUT ESTADO (ADMIN)
-// =========================
 export async function putEstadoCoche(req, res) {
   try {
     const { id } = req.params
@@ -84,9 +74,6 @@ export async function putEstadoCoche(req, res) {
   }
 }
 
-// =========================
-// PUT VISIBILIDAD (ADMIN)
-// =========================
 export async function putVisibilidadCoche(req, res) {
   try {
     const { id } = req.params
@@ -104,9 +91,6 @@ export async function putVisibilidadCoche(req, res) {
   }
 }
 
-// =========================
-// DELETE COCHE (ADMIN)
-// =========================
 export async function deleteCoche(req, res) {
   try {
     const { id } = req.params
