@@ -5,6 +5,11 @@ import {
   crearReserva
 } from "../repositories/reservas.repository.mjs"
 
+import {
+  cambiarEstadoCoche,
+  obtenerCochePorId
+} from "../repositories/coches.repository.mjs"
+
 import { obtenerUsuarioPorId } from "../repositories/usuarios.repository.mjs"
 import { cancelarReserva } from "../repositories/reservas.repository.mjs"
 

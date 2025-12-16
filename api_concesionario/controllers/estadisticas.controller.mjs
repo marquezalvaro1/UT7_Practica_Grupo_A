@@ -39,6 +39,16 @@ export async function getCochesPorMarca(req, res) {
   }
 }
 
+export async function getPrecioMedioPorMarca(req, res) {
+  try {
+    const resultado = await precioMedioPorMarca()
+    res.json(resultado)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: "Error obteniendo precio medio" })
+  }
+}
+
 export async function getTopMarcas(req, res) {
   try {
     const resultado = await topMarcas()
