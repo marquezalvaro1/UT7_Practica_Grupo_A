@@ -1,5 +1,16 @@
 import { supabase } from "../config/supabaseClient.mjs"
 
+export async function existeReservaActivaPorCoche(cocheId) {
+  const { data, error } = await supabase
+    .from("reservas")
+    .select("id")
+    .eq("coche_id", cocheId)
+    .eq("activa", true)
+    .limit(1)
+
+  if (error) throw error
+  return data.length > 0
+}
 
 export async function existeReservaActivaPorCliente(clienteId) {
   const { data, error } = await supabase
