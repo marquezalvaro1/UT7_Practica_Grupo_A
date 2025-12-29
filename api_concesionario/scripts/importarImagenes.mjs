@@ -74,7 +74,9 @@ async function generarImagenes() {
     }
   }
 
+    console.log("Proceso terminado.")
 
 }
 
+generarImagenes()
 
