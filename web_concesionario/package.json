@@ -1,0 +1,13 @@
+{
+  "name": "concesionario-web",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.22.1",
+    "express-session": "^1.17.3"
+  }
+}
