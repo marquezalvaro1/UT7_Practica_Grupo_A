@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Concesionario Premium</title>
+  <link rel="stylesheet" href="/css/cliente.css">
+</head>
+<body>
+
+<nav>
+  <a href="/cliente">Inicio</a>
+  <a href="#vehiculos">Vehículos</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <a href="/reservas">Mis reservas</a>
+  <a href="/logout" class="logout">Cerrar sesión</a>
+</nav>
+
+<header>
+  <div class="content">
+    <h1>Concesionario Premium</h1>
+    <p>Calidad, confianza y los mejores vehículos</p>
+  </div>
+</header>
+
+<% if (mensaje) { %>
+  <div class="mensaje-ok">
+    <%= mensaje %>
+  </div>
+<% } %>
+
+<section id="vehiculos">
+  <h2>Nuestros Vehículos</h2>
+
+  <% if (coches.length === 0) { %>
+    <p style="text-align:center">No hay vehículos disponibles.</p>
+  <% } else { %>
+
+    <div class="cards">
+      <% coches.forEach(coche => { %>
+        <div class="card">
+          <img src="<%= coche.imagen %>" alt="Imagen del vehículo">
+
+          <div>
+            <h3><%= coche.marca %> <%= coche.modelo %></h3>
+            <p><strong>Precio:</strong> <%= coche.precio %> €</p>
+            <p><strong>Estado:</strong> <%= coche.estado %></p>
+
+            <% if (coche.estado === "disponible") { %>
+              <a class="btn" href="/reservar/<%= coche.id %>">Reservar</a>
+            <% } else if (coche.estado === "reservado") { %>
+              <p class="reservado">Reservado</p>
+            <% } else { %>
+              <p>No disponible</p>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+  <% } %>
+</section>
+
+<section id="nosotros" class="about">
+  <h2>Sobre Nosotros</h2>
+  <p>
+    Somos un concesionario con años de experiencia ofreciendo vehículos de alta calidad,
+    atención personalizada y garantía de confianza.
+  </p>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p style="text-align:center">
+    Avenida Principal 123 · Tel. 555-123456 · contacto@concesionario.com
+  </p>
+</section>
+
+<footer>
+  © 2026 Concesionario Premium
+</footer>
+
+</body>
+</html>

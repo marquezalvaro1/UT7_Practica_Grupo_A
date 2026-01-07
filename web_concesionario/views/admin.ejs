@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<nav>
+  <a href="/admin">Panel Admin</a>
+  <a href="/logout" class="logout">Cerrar sesión</a>
+</nav>
+
+<header>
+  <div class="content">
+    <h1>Panel de Administración</h1>
+    <p>Gestión del stock de vehículos</p>
+  </div>
+</header>
+
+<section>
+  <h2>Vehículos</h2>
+
+  <button onclick="toggleFormulario()" class="add-btn">
+    AÑADIR NUEVO COCHE
+  </button>
+<br><br><br>
+  <div id="formulario-coche" style="display:none; margin:20px 0;">
+    <h3>Nuevo coche</h3>
+
+    <input id="marca" placeholder="Marca">
+    <input id="modelo" placeholder="Modelo">
+    <input id="precio" type="number" placeholder="Precio">
+    <input id="imagen" placeholder="URL de la imagen">
+    <input id="tipo" placeholder="Tipo">
+    
+
+    <select id="estado">
+      <option value="disponible">Disponible</option>
+      <option value="reservado">Reservado</option>
+      <option value="vendido">Vendido</option>
+    </select>
+
+    <select id="visible">
+      <option value="true">Visible</option>
+      <option value="false">Oculto</option>
+    </select>
+
+    <br><br>
+    <button onclick="crearCoche()">Guardar coche</button>
+  </div>
+
+  <% if (!coches || coches.length === 0) { %>
+    <p style="text-align:center">No hay vehículos registrados.</p>
+  <% } else { %>
+
+    <div class="cards" id="lista-coches">
+      <% coches.forEach(coche => { %>
+        <div class="card" id="coche-<%= coche.id %>">
+
+          <img src="<%= coche.imagen %>" alt="<%= coche.marca %> <%= coche.modelo %>">
+
+          <div class="info">
+            <h3><%= coche.marca %> <%= coche.modelo %></h3>
+
+            <p><strong>Precio:</strong> <%= coche.precio %> €</p>
+            <p><strong>Estado:</strong>
+              <span class="estado-text"><%= coche.estado %></span>
+            </p>
+            <p><strong>Visible:</strong>
+              <span class="visible-text"><%= coche.visible ? "Sí" : "No" %></span>
+            </p>
+
+            <div class="acciones">
+              <button onclick="cambiarEstado('<%= coche.id %>', 'disponible')">Disponible</button>
+              <button onclick="cambiarEstado('<%= coche.id %>', 'reservado')">Reservado</button>
+              <button onclick="cambiarEstado('<%= coche.id %>', 'vendido')">Vendido</button>
+
+              <button onclick="cambiarVisibilidad('<%= coche.id %>', true)">Mostrar</button>
+              <button onclick="cambiarVisibilidad('<%= coche.id %>', false)">Ocultar</button>
+
+              <button class="danger" onclick="eliminarCoche('<%= coche.id %>')">
+                Eliminar
+              </button>
+            </div>
+          </div>
+
+        </div>
+      <% }) %>
+    </div>
+
+  <% } %>
+</section>
+
+<footer>
+  © 2026 Concesionario Premium · Administración
+</footer>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

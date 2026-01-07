@@ -1,6 +1,4 @@
-/* ===============================
-   RESET
-================================ */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,9 +11,6 @@ body {
   color: #333;
 }
 
-/* ===============================
-   NAV
-================================ */
 nav {
   background-color: #1e1e1e;
   padding: 15px 30px;
@@ -38,9 +33,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ===============================
-   HEADER
-================================ */
 header {
   background-color: #2c2c2c;
   color: white;
@@ -57,9 +49,6 @@ header p {
   color: #ccc;
 }
 
-/* ===============================
-   SECCIÓN PRINCIPAL
-================================ */
 section {
   max-width: 1200px;
   margin: 40px auto;
@@ -71,9 +60,6 @@ section h2 {
   margin-bottom: 20px;
 }
 
-/* ===============================
-   BOTÓN AÑADIR
-================================ */
 .add-btn {
   background-color: #000;
   color: white;
@@ -88,9 +74,6 @@ section h2 {
   opacity: 0.85;
 }
 
-/* ===============================
-   FORMULARIO NUEVO COCHE
-================================ */
 #formulario-coche {
   background-color: white;
   padding: 20px;
@@ -148,9 +131,6 @@ section h2 {
   object-fit: cover;
 }
 
-/* ===============================
-   INFO COCHE
-================================ */
 .info {
   padding: 15px;
   flex-grow: 1;
@@ -166,9 +146,6 @@ section h2 {
   margin-bottom: 6px;
 }
 
-/* ===============================
-   ACCIONES
-================================ */
 .acciones {
   margin-top: 10px;
   display: flex;
@@ -176,9 +153,6 @@ section h2 {
   gap: 6px;
 }
 
-/* ===============================
-   BOTONES
-================================ */
 button {
   padding: 8px;
   font-size: 13px;
@@ -187,16 +161,13 @@ button {
   cursor: pointer;
 }
 
-/* Estados */
 button:nth-child(1) { background-color: #2ecc71; color: white; }
 button:nth-child(2) { background-color: #f1c40f; color: #333; }
 button:nth-child(3) { background-color: #e74c3c; color: white; }
 
-/* Visibilidad */
 button:nth-child(4) { background-color: #3498db; color: white; }
 button:nth-child(5) { background-color: #7f8c8d; color: white; }
 
-/* Eliminar */
 button.danger {
   background-color: black;
   color: white;
@@ -206,9 +177,6 @@ button:hover {
   opacity: 0.85;
 }
 
-/* ===============================
-   FOOTER
-================================ */
 footer {
   text-align: center;
   padding: 20px;
@@ -216,9 +184,6 @@ footer {
   font-size: 14px;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
