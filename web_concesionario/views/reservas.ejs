@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis reservas</title>
+  <link rel="stylesheet" href="/css/cliente.css">
+</head>
+<body>
+
+<nav>
+  <a href="/cliente">Inicio</a>
+  <a href="/reservas">Mis reservas</a>
+  <a href="/logout" class="logout">Cerrar sesión</a>
+</nav>
+
+<section style="max-width:900px; margin:40px auto">
+
+  <h2 style="text-align:center">Mi reserva</h2>
+
+  <% if (!reserva) { %>
+    <p style="text-align:center">No tienes ninguna reserva activa.</p>
+  <% } else { %>
+
+    <div class="card" style="margin:30px auto; max-width:500px">
+      <img src="<%= reserva.coche.imagen %>" alt="Coche">
+
+      <div>
+        <h3><%= reserva.coche.marca %> <%= reserva.coche.modelo %></h3>
+        <p><strong>Precio:</strong> <%= reserva.coche.precio %> €</p>
+        <p><strong>Importe de reserva:</strong> <%= reserva.importe %> €</p>
+        <p><strong>Estado:</strong> <%= reserva.coche.estado %></p>
+      </div>
+    </div>
+
+    <form method="POST" action="/reservas/cancelar" style="text-align:center">
+      <input type="hidden" name="reserva_id" value="<%= reserva.id %>">
+      <button class="btn-cancelar" type="submit">Cancelar reserva</button>
+    </form>
+
+  <% } %>
+
+</section>
+
+</body>
+</html>

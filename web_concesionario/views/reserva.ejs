@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reserva de vehículo</title>
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <h1>Reserva de vehículo</h1>
+
+  <p><strong>Cliente:</strong> <%= usuario.nombre %></p>
+  <p><strong>Vehículo:</strong> <%= coche.marca %> <%= coche.modelo %></p>
+  <p><strong>Importe de la reserva:</strong> 100 €</p>
+
+  <p style="font-size:14px; color:#666; margin-bottom:20px">
+    Este pago es simulado. No se realizará ningún cargo real.
+  </p>
+
+  <form method="POST" action="/reservar">
+    <input type="hidden" name="coche_id" value="<%= coche.id %>">
+    <input type="hidden" name="importe" value="100">
+    <button type="submit">Pagar y reservar</button>
+  </form>
+
+  <div class="auth-links">
+    <a href="/cliente">Cancelar y volver</a>
+  </div>
+</div>
+
+</body>
+</html>
